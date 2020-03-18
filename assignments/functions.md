@@ -6,6 +6,9 @@
 
 ```js
 // your code goes here
+function calculateDogAge(age, conversionRate = 7) {
+  console.log(`your doggie is ${age * conversionRate} years old in dog years!`)  
+}
 ```
 2. 🎖Write a function named calculateSupply that:
   * [ ] takes 2 arguments: age, amount per day.
@@ -15,6 +18,11 @@
 
 ```js
 // your code goes here
+function calculateSupply(age,amountPerDay) {
+  const maxAge = 60;
+  let amountNeed = (maxAge - age) * (365 * amountPerDay);
+  return (`You will need ${Math.round(amountNeed)} to lasst you until the ripe old age of ${maxAge}`)
+}
 ```
 3. 🎖Create a function called celsiusToFahrenheit:
   * [ ] Store a celsius temperature into a variable.
@@ -25,6 +33,26 @@
 
 ```js
 // your code goes here
+
+let celsius = Number( prompt("enter the temp in celsius:") );
+
+function celsiusToFahrenheit(celsius) {
+  return ( (celsius * 9 ) / 5 ) + 32;
+}
+console.log(`${celsius} °C is ${celsiusToFahrenheit(celsius)} °F);
+
+
+//fahrenheit to celsius
+
+let fahrenheit = Number( prompt("enter the temp in fahrenheit:") );
+
+function fahrenheitToCelsius(fahrenheit) {
+  return ( (fahrenheit - 32 ) * 5 ) / 9 ;
+}
+console.log(`${fahrenheit} °F is ${fahrenheitToCelsius(fahrenheit)} °C`);
+
+
+
 ```
 4. 🎖The function below returns true if the parameter age is greater than 18. Otherwise it asks for a confirmation and returns its result:
 
@@ -41,11 +69,19 @@ function checkAge(age) {
   4.1 🎖Convert the above function using ternary operator.
   ```js
   // your code goes here
+  function checkAge(age) {
+    return age > 18 ? true : confirm("Did parents allow you?")
+  }
   ```
 
   4.2 🎖Convert the above function using `||` operator.
   ```js
   // your code goes here
+
+  function checkAge(age) {
+    return age > 18 : confirm("Did parents allow you?");
+  }
+
   ```
 Will the function work differently if else is removed like below?
 
@@ -57,6 +93,7 @@ function checkAge(age) {
   // ...
   return confirm("Did parents allow you?");
 }
+//no, the function will not work differently.
 ```
 Is there any difference in the behavior of these two variants? If there is what is that?
 
@@ -69,6 +106,13 @@ Is there any difference in the behavior of these two variants? If there is what 
 ```js
 // Your code goes here
 
+let x = prompt("enter a number:");
+let n = prompt("enter the no:")
+
+function pow(x, n) {
+  return x<1 ? "The  no below one is not allowed" : x ** n;
+}
+
 // After writing code uncomment to check the answer.
 // pow(3, 2); // 9
 // pow(3, 3); // 27
@@ -79,22 +123,68 @@ Is there any difference in the behavior of these two variants? If there is what 
 
 ```js
 // your code goes here
+
+function output(choice) {
+  let n = Number(prompt("Enter number"));
+  choice = prompt("enter add for addition and prod for product");
+  let sum = 0;
+  let product = 1;
+  
+  if(choice == "add"){
+    for(let i = 1; i <= n; i++){
+      sum += i;
+    }
+    return sum;
+
+  } else {
+    for (i = 1; i <= n; i++) {
+      product *= i;
+    }
+    return product;
+  }
+
+
+}
+
+
 ```
 6. 🎖Write a program that asks the user for a number n using prompt and prints the sum of the numbers 1 to n
 
 ```js
 // your code goes here
+let number = Number( prompt("enter the no:") );
+
+function sum(number){
+  let sum = 0;
+  for (let i= 1; i <= number :i++) {
+    sum += i;
+  }
+  return sum;
+}
 ```
 7. 🎖Modify the previous program such that only multiples of 5 or 7 are considered in the sum, e.g. n = 20 (5,7,10,14,15,20) 71
 
 ```js
 // your code goes here
+function sum(number) {
+  number = Number( prompt("enter the no:"));
+  let sum = 0;
+  for (let i = 0; i <= number; i++) {
+    if (i % 5 == 0 || i % 7 === 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}
 ```
 
 8. 🎖Write a function `min` that takes two arguments and returns their minimum.
 
 ```js
 // Your code here.
+function min(a, b) {
+  return a < b ? a : b;
+}
 
 console.log(min(0, 10));
 // → 0
